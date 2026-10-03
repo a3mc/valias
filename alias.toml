@@ -1,4 +1,19 @@
-# Solana validator relationships, keyed by vote account.
+# Vote accounts grouped by shared withdraw authorities, withdraw-multisig signers and hosts.
+# Source: https://github.com/a3mc/valias
+#
+# Maintained by ART3MIS.CLOUD - https://art3mis.cloud
+# ART3MIS.CLOUD identity GwHH8ciFhR8vejWCqmg8FWZUCNtubPY2esALvy5tBvji
+#               vote     3iPuTgpWaaC6jYEY7kd993QBthGsQTK3yPCrNJyPMhCD
+# Contact: team@art3mis.cloud   PGP: 8E5DAE8C18B42016E27207B95C6631681B91055A
+#
+# All data in this file is collected and maintained by ART3MIS.CLOUD. The IP-change
+# history behind every "Common operation" entry comes from the BigBrother engine
+# (https://bigbrother.art3mis.cloud); withdraw authorities and multisig signers are read from chain.
+#
+# Matching vote accounts by the signers of their withdraw multisigs was first reported by
+# Andrei Vacariu (x.com/andreivacariu_).
+#
+# Keep this header in every copy of this file.
 # Everything in this file is public. Vote accounts only. Format and rules: README.md
 #
 # Examples (copy, uncomment, fill in):
@@ -9,9 +24,8 @@
 # [group.metadata]
 # level = "warning"
 # info = "one line"
-# details = "longer explanation"
+# details = "what was recorded"
 # sources = ["https://..."]
-# credit = "who found it"
 #
 # [[validator]]
 # vote = "VOTE_ACCOUNT"
@@ -25,8 +39,8 @@ anchor = "Ha1VoTEPWFQp1wZjbQhBNXJftuHvimu1ruzF3xKYRPDQ"
 votes = ["votem3UdGx5xWFbY9EFbyZ1X2pBuswfR5yd2oB3JAaj"]
 [group.metadata]
 level = "warning"
-info = "Same operator: both move to one spare host during version upgrades"
-details = "During version upgrades each moves for 0.5-4h to 5.199.164.126, one after the other. Significant DynoSOL stake on both (~127k and ~153k SOL, epoch 1043)"
+info = "Common operation: both move to one host during version upgrades"
+details = "During version upgrades each moves for 0.5-4h to 5.199.164.126, one after the other. DynoSOL stake ~127k and ~153k SOL (epoch 1043)"
 sources = [
   "https://get.art3mis.cloud/api/history?event_type=ip_change&new_value=5.199.164.126",
   "https://get.art3mis.cloud/api/history?event_type=pool_validator_active_stake_lamports_change&pool_name=dynosol&validator=Ha1iade1AH3B12K9SccfWoPdFtQKKQsj2ZyWwxcjqJJU&epoch=1043",
@@ -67,19 +81,862 @@ votes = [
   "dstqVmt3cDH43Ux2SeTY2Hza1eVW6pwGLwehWCLfuPd",  # Dust Eleven
   "TAPEtHVPxwEGgjZtEErkE4cSG7f2c22BZtdVvYGN5D3",  # Tapedrive
   "sTach38ebT8jnGH8i2D1g8NDAS6An19whVMnSSWPXt4",  # Hydex
+  "STevE9xVb1QfBHU4GgEn28r9oikAf5yxKJddF7fufwb",  # STEVE
+  "chdv8H9fPfk2zFqSVaxRjsEo2qEDmswbju3BVgAHPNb",  # CH Dev
+  "DCKYVqFDwUs5m2DhW9muK2EX86pootvWD8wXA4nSqDxU",  # Dicky
+  "CtzNnqzSLwNtkzi2yEWvq4w3GYQ5gSpCagqFZ5TbdSKb",  # Citizen Node
+  "hnhxfrndd827LET6jvnQV4aWqpS2EedaHcT4gj8ArSu",  # Hodl & Hodl LLLP
+  "1i1yax3thZfiV8id5HTA61bjsxEi4pbjmhXsqy6JePP",  # Lilith
+  "eyeVhGmVEoPSWmQU2wP5WZmMihPBTCk7kMMm4VhuAKS",  # Eyenotion
+  "prt1s9dMM15LdsUX9HugajzqPB5WVN8a2mw3frAiCfj",  # Portals
 ]
 [group.metadata]
 level = "warning"
-info = "One operator: withdraw authority of all 32 held through multisigs with shared signer keys"
-details = "Squads multisigs share signer keys 2fquRXDq, Gkb8wxgq, GQJUoajR (30 of 32); 73PYe5P4 and AnQMxshk link Charity Soul, Decentra and Nova Consortium. 27 also ran on the same hosts at overlapping times"
+info = "Common control: 32 shared multisig signer keys until 2026-09-30; 8 more take turns on the same hosts"
+details = "Until 2026-09-29 the Squads multisigs holding the withdraw authority of 32 shared signer keys 2fquRXDq, Gkb8wxgq, GQJUoajR (30 of 32). On 2026-09-29/30 these keys signed the change of withdraw authority of 16 of them to new multisigs; 2fquRXDq is still a signer for Charity Soul, Bay3, Hydex and Portals. Hosts 72.46.84.115 and 67.213.113.101 were used in turn, 2025-10 to 2026-09, by exactly 35 identities: 27 of the 32 and STEVE, CH Dev, Dicky, Citizen Node, Hodl & Hodl, Lilith, Eyenotion, Portals"
 sources = [
   "https://explorer.solana.com/address/2fquRXDqK1YLLC8E7z74CtLevw1ZiTtd6LG3L2bQsZdM",
   "https://explorer.solana.com/address/Gkb8wxgqhixY3K8NNrM5KZuSY5yFftud8Jp2D5KMXLPQ",
   "https://explorer.solana.com/address/GQJUoajR3gHfXJSSaTviAvRrMTUTmB9jiGE672KcFsUh",
+  "https://explorer.solana.com/tx/3veRBfVYYFYThJwj1SMXYSCfmd3rkAuG5dPuUxNwDo8duqRvX4cPY1uGF52HYGj83SRc2bPwHUfQBbBwZNY1WoZo",
   "https://explorer.solana.com/address/73PYe5P4a3r2NgvSCqs7hgLq2aMXr3JSkUos3FSAFMSm",
   "https://explorer.solana.com/address/AnQMxshkiayxvHbfUmzv3hzR5yhAkXnRLUarEavWXBF3",
-  "https://get.art3mis.cloud/api/history?event_type=ip_change&new_value=67.213.113.101",
   "https://get.art3mis.cloud/api/history?event_type=ip_change&new_value=72.46.84.115",
+  "https://get.art3mis.cloud/api/history?event_type=ip_change&new_value=67.213.113.101",
   "https://gossip.solstack.app",
 ]
-credit = "Multisig link first reported by Andrei Vacariu (x.com/andreivacariu_); 32 of his 41 confirmed by @a3mc"
+
+[[group]]
+anchor = "CHiaohVV2SQCFhiYP73iQzWT6HxnZqnAZJJqAYTeLAo"  # The Chimpions
+votes = [
+  "FoXyNdpkiQBsWgrYER43PcZ5rcpzMk8jGxN3NyEx5dmB",  # Famous Foxes
+  "ReFiSbuMcV8PMYcpvm9RmHDhF9HR3qyxsHZgf359NUx",  # ReFi Hub
+  "adraBKLNY3DL3pg6SJRDYiMA8BsznaWpUdE42X41gbP",  # Adrastea Validator
+  "STPTPuWoyKzbWawom5DBndxkeRFAjW4PzJ2EjL1qeMW",  # Solana Portugal
+]
+[group.metadata]
+level = "warning"
+info = "Common control: 3 share a signer in their withdraw multisigs; 3 take turns on one host"
+details = "Host 155.138.205.169 was used in turn by The Chimpions, Famous Foxes and ReFi Hub only (36 arrivals, 2025-10 to 2026-09); Famous Foxes and The Chimpions handed over within an hour on 2025-11-26 and 2025-12-02. Signer 93XpqG6JBqgazLfRZeLumfQfwbwWpL1FhVL3nuoyyese is in the withdraw multisigs of The Chimpions (5 of 12), Adrastea (2 of 4) and STPTPuWo (2 of 3)"
+sources = [
+  "https://get.art3mis.cloud/api/history?event_type=ip_change&new_value=155.138.205.169",
+  "https://explorer.solana.com/address/93XpqG6JBqgazLfRZeLumfQfwbwWpL1FhVL3nuoyyese",
+  "https://explorer.solana.com/address/GAECVK1uK3XKFgBhR3LXkmbaRLxQY1EV5gxfY6cwUv7c",
+  "https://explorer.solana.com/address/GXfqabcsXTwisFdw3fMYSNsCpoNGf7umY1YAeFxHcV2q",
+  "https://explorer.solana.com/address/3n8jK8ke5P7XRY62nkjcJigkFL2gM6iFq1Sf8DhBsHt1",
+]
+
+[[group]]
+anchor = "jag77EXci8uf5uGmKE5izaYvxBCS5H9U2rxWYh8BUUf"  # Jaguar
+votes = [
+  "AuBB9st3RqhHBkzZgBSm6SVnHZNJQSHeBWCSkik4bzdA",  # Latitude.sh
+  "avnu2RYyQbLL4LQnwi7ismwDNaegnXeUEzvZb2FUptF",  # AVNU
+]
+[group.metadata]
+level = "warning"
+info = "Common operation: all 3 identities take turns on the same hosts"
+details = "AVNU used Latitude.sh's host 72.46.87.239 three times and handed over with it on 2026-05-20; Jaguar and Latitude.sh took turns on 185.189.46.66 from 2026-08-11 and handed over twice on 2026-08-15. Jaguar declares jagpool.xyz"
+sources = [
+  "https://get.art3mis.cloud/api/history?event_type=ip_change&new_value=72.46.87.239",
+  "https://get.art3mis.cloud/api/history?event_type=ip_change&new_value=185.189.46.66",
+]
+
+[[group]]
+anchor = "FKsC411dik9ktS6xPADxs4Fk2SCENvAiuccQHLAPndvk"  # P2P.org
+votes = [
+  "8hPk5CbKDoM7dN9LssTdVkFhDykeq7A8CZurA5AQSFJH",  # Bybit Staking
+  "BN6EvLCeuYdrTjGaHCyugF7sSH5uckoVoy3Kg2TkyuDW",  # Sygnum Validators
+  "xBLpiTwufjcuFCjbk4aCmFy7HUY5D9xy8L1EX2rBwmC",  # P2P.org Turbo
+  "2Bgb4T6Zdy9iy2S3xxDRpwdgQHpitoDnZt5aBnCwv3Ez",
+  "8n9ZTVwH2ZMTmCNmAgT54TUUJbLRLCDDy77nBpVzGEcE",
+  "7qTwituXJJ5dtUwBZXjMNgtAyXJbx3X8V4B9gXFRjK9d",  # P2P.org Labs
+  "55L7AV93xRmx5F7rX1GCfsHxfYWNu4bKsG6f8tG6dFRo",
+]
+[group.metadata]
+level = "warning"
+info = "Common control: one withdraw authority for all 8"
+details = "Withdraw authority HMeuTNWrsRiZBAvvXENVMFTgtEcdkaqgHMEvn1DY8nKD on all 8, including Bybit Staking and Sygnum Validators. It is a Squads vault; signers nCH27ozS, 34zbKPnW, 7f5YasXf. Website p2p.org in validator-info on 3 of 8: P2P.org, P2P.org Turbo, P2P.org Labs"
+sources = [
+  "https://explorer.solana.com/address/HMeuTNWrsRiZBAvvXENVMFTgtEcdkaqgHMEvn1DY8nKD",
+  "https://get.art3mis.cloud/api/validators/FKsC411dik9ktS6xPADxs4Fk2SCENvAiuccQHLAPndvk",
+  "https://get.art3mis.cloud/api/validators/xBLpiTwufjcuFCjbk4aCmFy7HUY5D9xy8L1EX2rBwmC",
+  "https://explorer.solana.com/address/BVbEwntxMEBaJoNRE9QBQ4kpctqP9iYTwyvAxyXFEvfV",
+]
+
+[[group]]
+anchor = "Haz7b47sZBpxh9SwggGndN3fAyNQ1S949BPdxWXS3ab6"  # Temporal Emerald
+votes = [
+  "2iWXwF2Q5W6o7yntV2mkbxncB4rYHnX61y3NU8a8EFMJ",  # DeFi Dev Corp (NASDAQ: DFDV)
+  "DqbRPQXbN8GDKWZkKiHnRjiSKPqE3rQaNgTPxdLGPDMK",  # Axiom
+  "CooLbbZy5Xmdt7DiHPQ3ss2uRXawnTXXVgpMS8E8jDzr",  # Cavey Cool
+  "oPaLTmyvoUhW26QCMwLA5JNUeBYy72PDpFoXQF8SeX4",  # Temporal Opal
+  "nymsndUdAZyUPpWYz5VEg8Ghj9cFvwTRgciLogpmYaQ",  # Hypo Nyms
+  "7emL18Bnve7wbYE9Az7vYJjikxN6YPU81igf6rVU5FN8",  # Temporal Topaz
+  "mrgn2vsZ5EJ8YEfAMNPXmRux7th9cNfBasQ1JJvVwPn",  # Project 0 Horizon
+  "mrgn4t2JabSgvGnrCaHXMvz8ocr4F52scsxJnkQMQsQ",  # Project 0 Meridian
+  "8Pep3GmYiijRALqrMKpez92cxvF4YPTzoZg83uXh14pW",  # private
+  "ADoJoWDcMS7HVW8cMu5GRvy3FBm3RG5bEWQi74YRnwKt",
+  "G8hvpQDLe7hGgYtWYt4TJJEbGbgLFCBJYiMi9pMD9Kk2",
+]
+[group.metadata]
+level = "warning"
+info = "Common operation: 12 identities take turns on the same hosts"
+details = "Nine identities ran in turn on host 208.91.110.164, 2025-10 to 2026-09, with hand-offs within an hour between members (73 by 2026-09-28); 64.130.41.139 and 64.130.53.75 are used the same way. On 2026-10-03 8Pep3GmY arrived on 208.91.110.164, ADoJoWDc and G8hvpQDL on 64.130.41.139, each handing over with members within an hour. Temporal Emerald, Opal and Topaz declare temporal.xyz; Project 0 Horizon and Meridian declare 0.xyz"
+sources = [
+  "https://get.art3mis.cloud/api/validators/Haz7b47sZBpxh9SwggGndN3fAyNQ1S949BPdxWXS3ab6",
+  "https://get.art3mis.cloud/api/validators/oPaLTmyvoUhW26QCMwLA5JNUeBYy72PDpFoXQF8SeX4",
+  "https://get.art3mis.cloud/api/history?event_type=ip_change&new_value=208.91.110.164",
+  "https://get.art3mis.cloud/api/history?event_type=ip_change&new_value=64.130.41.139",
+  "https://get.art3mis.cloud/api/history?event_type=ip_change&new_value=64.130.53.75",
+]
+
+[[group]]
+anchor = "8zuMRTXThoPTTPLLvaiKiJshLLCqGMt9BdRjjCL19xBc"  # Dawn Labs
+votes = [
+  "6AAeoHYMUQfSdFGqubUmWVAasFkzJEq47oKpHNNTZxLN",  # Tane
+  "H6rbcwuQtadcv9JvxLM7GEskF6xFXnrNT3iPkk4RfyBE",  # LootGo
+  "F3scMRjzSvXUa7JoK2uwBjNsYGi5sM84sDzE7FfGBo6o",  # HAKUHODO KEY3
+  "EJHf5N9is5spAF5Kz384tTvTV3CwTka6qzUoZrYm53SV",  # Windfall
+  "FzUNgBRnVxawDytN9GM7BFwxFfekuMs7BcAGybn4AmMk",  # NTT DOCOMO GLOBAL
+  "QWmexgr4teHa2ZF85tyf2hvEwBvJ6ioAEr1h8DRjoie",  # Daiko
+  "9bb63m29Xy1KiWqijLs3f8adTE4KcSmVkt1qPxGkbkna",  # Vault
+  "2DNGsVZ9rg6RvT8bY4SGmGvyiVJ4xt9RL3NDd6uhfN46",  # South
+  "4ibf8qJirtoBGg7gSD7V7CeCKoFB96PBYQ3J5QjSmAob",  # Sol Hack3rs
+  "9KgZYnDzHhQANoJ43Z8czkgXYdTjtWLRrH9nDf42gqa",  # Pacific Meta
+  "74y2qkCaJ5L17hTsz3E8jftNxTBCTvdz4P2L6qTHDW59",  # Hive Validator
+  "3vwstewNgWAwN2uyuJduoZVVhmiwvAbwCxrjeJG6bASy",  # WIZE Validator
+  "DPsW8v7gkGUbPPRnraS5e163bDepd9tD537X9S231T2j",  # StudentSOL
+  "4udPrmxccbP1NwDJ6vChFKs5qcqyjmQff6gsKXD1mdaj",  # Allied Validator
+]
+[group.metadata]
+level = "warning"
+info = "Common operation: 15 identities take turns on the same hosts"
+details = "Host 84.32.186.198 was used in rotation by 13 of them, 2025-10 to 2026-09, stays of about 4 hours; 84.32.186.141 and 84.32.186.149 the same way; 26 hand-offs within an hour between members. NTT DOCOMO GLOBAL and WIZE Validator use further hosts shared with Vault, Pacific Meta, Windfall, Sol Hack3rs and Daiko"
+sources = [
+  "https://get.art3mis.cloud/api/history?event_type=ip_change&new_value=84.32.186.198",
+  "https://get.art3mis.cloud/api/history?event_type=ip_change&new_value=84.32.186.141",
+  "https://get.art3mis.cloud/api/history?event_type=ip_change&new_value=84.32.186.149",
+]
+
+[[group]]
+anchor = "HxRrsnbc6K8CdEo3LCTrSUkFaDDxv9BdJsTDzBKnUVWH"  # Haus – Best APY & No Fees
+votes = [
+  "41HgiTYQ3qDWFW8jSDkecH2mEHUqZsmwFGDPndtmyLDR",  # MeshMap
+]
+[group.metadata]
+level = "warning"
+info = "Common operation: both take turns on the same hosts"
+details = "Hosts 37.72.171.102, 45.139.132.46 used in turn, 6 hand-offs within an hour, 2025-10 to 2026-09"
+sources = [
+  "https://get.art3mis.cloud/api/history?event_type=ip_change&new_value=37.72.171.102",
+  "https://get.art3mis.cloud/api/history?event_type=ip_change&new_value=45.139.132.46",
+]
+
+[[group]]
+anchor = "FRTcwF2LHHLV2VxKB9nzNpqyBXjpKvkEs5aRuMXrrk8X"  # Calypso
+votes = [
+  "47hzyKgoz9Fu1HP4mR48tvAFj7akCFZKGzZqWo32sNqG",  # Maera
+  "2s2K5hcECd67832EzrVMCiCtbb54CHsqXtewuwwNVqtA",  # Nemertes
+]
+[group.metadata]
+level = "warning"
+info = "Common control: one withdraw authority for all 3"
+details = "Withdraw authority CJQzHKnpxWxhzYfbDJiNdD1EBLdnjiYWQ4rQ9yrHUaXi on all 3. Host 57.129.90.4 used in turn, 2025-10 to 2026-10"
+sources = [
+  "https://explorer.solana.com/address/CJQzHKnpxWxhzYfbDJiNdD1EBLdnjiYWQ4rQ9yrHUaXi",
+  "https://get.art3mis.cloud/api/history?event_type=ip_change&new_value=57.129.90.4",
+]
+
+[[group]]
+anchor = "bkpkQKgJMQXqwZL5dRX9LMwnsz9zkZZqCtqWfnBcwDx"  # Backpack
+votes = [
+  "34yvUa2fxfm2tUqxFEj9PHrVNwCcdzd51eo9hntWpZRs",  # Aurora Validator
+  "B6nDYYLc2iwYqY3zdmavMmU9GjUL2hf79MkufviM2bXv",  # Mad Lads
+]
+[group.metadata]
+level = "warning"
+info = "Common operation: all 3 take turns on the same hosts"
+details = "Hosts 38.46.222.136, 38.58.176.230 used in turn, 11 hand-offs within an hour, 2025-10 to 2026-09"
+sources = [
+  "https://get.art3mis.cloud/api/history?event_type=ip_change&new_value=38.46.222.136",
+  "https://get.art3mis.cloud/api/history?event_type=ip_change&new_value=38.58.176.230",
+]
+
+[[group]]
+anchor = "4qvFxnUXYjBdcviCwVV7gKcGJMCENEBfS82hSLJUhyvu"  # DICS - Degen Infrastructure Core Services
+votes = [
+  "odc2aCE7yWTcV8ApP1cHmVqQZTkLNduqaYyKE1XhpE3",  # Odyssey
+  "chopjqMvdGWRcrcuC1r8LmAzz9obXi1gSYPYM6zimWa",  # Choplet Studios
+  "21oUQzzytWh6y3G3SQ7ehktMh1RrbsJNA4R5pAMNyyrG",  # Range
+  "Lua298Woc4rgcswL64yfWAL4EW44FgBZeLsKforf6tJ",  # Lua Sol Foundation
+]
+[group.metadata]
+level = "warning"
+info = "Common operation: all 5 identities take turns on the same hosts"
+details = "On 2026-05-21 Choplet Studios, Range and Lua Sol Foundation each ran on 38.92.24.108 for 12-18 minutes, one after another (05:20, 05:47, 06:06 UTC), while their version changed from 3.1.13 to 4.0.0, and returned to their previous hosts in Germany, Chile and the United States. DICS and Odyssey hand over with them on other hosts, 2026-04 to 2026-08"
+sources = [
+  "https://get.art3mis.cloud/api/history?event_type=ip_change&new_value=38.92.24.108",
+  "https://get.art3mis.cloud/api/history?event_type=ip_change&new_value=189.1.171.191",
+  "https://get.art3mis.cloud/api/history?event_type=ip_change&new_value=5.199.172.156",
+  "https://get.art3mis.cloud/api/history?event_type=ip_change&new_value=64.34.87.159",
+]
+
+[[group]]
+anchor = "FACqsS19VScz8oo2YhdMg35EsAy6xsCZ9Y58eJXGv8QJ"  # Lantern
+votes = [
+  "BoNKvwirX136zCjcnayEM4W82vn13RKkjm1Sy3UPBdim",  # BONK
+]
+[group.metadata]
+level = "warning"
+info = "Common operation: both take turns on the same hosts"
+details = "Host 199.91.64.26 used in turn, 2 hand-offs within an hour, 2025-10 to 2026-07"
+sources = [
+  "https://get.art3mis.cloud/api/history?event_type=ip_change&new_value=199.91.64.26",
+]
+
+[[group]]
+anchor = "DPmsofVJ1UMRZADgwYAHotJnazMwohHzRHSoomL6Qcao"  # JStaking: 0% fee · top returns
+votes = [
+  "5afRnmkFn1pRU9oussqwk1RRBVyoDgUkL16Jz4qNf574",  # Staking Kiwi
+  "CTDGxxJBrZVqUUHdHopLn4k4gtc2PCpcM9TB7ZEC4Hu2",  # Cointelegraph Decentralization Guardians
+]
+[group.metadata]
+level = "warning"
+info = "Common operation: all 3 take turns on the same hosts"
+details = "Hosts 70.40.185.229, 103.167.235.184, 70.40.185.126 used in turn, 36 hand-offs within an hour, 2025-10 to 2026-09"
+sources = [
+  "https://get.art3mis.cloud/api/history?event_type=ip_change&new_value=70.40.185.229",
+  "https://get.art3mis.cloud/api/history?event_type=ip_change&new_value=103.167.235.184",
+  "https://get.art3mis.cloud/api/history?event_type=ip_change&new_value=70.40.185.126",
+]
+
+[[group]]
+anchor = "Cer1umMkC6cvRGKKLP3QwxsdxsgxmC1EhqMhB1mqVvYZ"  # 🔥💃🇸🇬 CeriumXYZ
+votes = [
+  "R2D2vs3bJwpNF2ejaB6UW1JdCZ5VstuAmuwxDuUUWNj",  # 🤖 RoboRun.xyz
+]
+[group.metadata]
+level = "warning"
+info = "Common operation: both take turns on the same hosts"
+details = "Host 84.32.32.83 used in turn, 2 hand-offs within an hour, 2025-10 to 2026-09"
+sources = [
+  "https://get.art3mis.cloud/api/history?event_type=ip_change&new_value=84.32.32.83",
+]
+
+[[group]]
+anchor = "J6KaKtLRj7eQGuVVL2CAz1AS9kDxsrmej9QbYkEtsiAD"  # DarkTower
+votes = [
+  "FwLsjPJdnSiuCvs1NXyR1cV6Sw5GRE6Lj2s1gZ9NNTmv",  # CyberVillage
+  "6SF5cmEXFFEmnFd5BwM4J6NkZhh3WfPkgmqdoAGjLLPX",  # livechanger
+  "3hhEWRNAVzqRjmF9hW5nYkrmDMxKKzGziE11Sg7yk3iX",  # Glory to Ukraine
+  "KiNGunz943rm3mJmnbELCTSh61EPqbNATFiP9XbFb9G",  # EMPEROR
+]
+[group.metadata]
+level = "warning"
+info = "Common operation: all 5 identities take turns on the same hosts"
+details = "Host 212.83.42.36 had 63 arrivals from 2025-10 to 2026-07 by these five only (Glory to Ukraine 24, EMPEROR 14, DarkTower 11, CyberVillage 7, livechanger 7), about 45 minutes each; 45.134.108.87 is used the same way by the other four. 41 hand-offs within an hour between members"
+sources = [
+  "https://get.art3mis.cloud/api/history?event_type=ip_change&new_value=212.83.42.36",
+  "https://get.art3mis.cloud/api/history?event_type=ip_change&new_value=45.134.108.87",
+]
+
+[[group]]
+anchor = "HMk1qny4fvMnajErxjXG5kT89JKV4cx1PKa9zhQBF9ib"  # BLOCKSIZE
+votes = [
+  "MicobSZgB9CZNvmnFSYbEtMjy7CUui5o6P3XoGTwZC5",  # MICOBO
+]
+[group.metadata]
+level = "warning"
+info = "Common operation: BLOCKSIZE's identity ran on MICOBO's host"
+details = "On 2025-11-26 from 11:05 to 11:19 UTC BLOCKSIZE's identity was on 104.204.141.165, MICOBO's host; MICOBO was delinquent from 11:06 to 11:19 UTC. Both hosts are in Allnodes address space (AS395201)"
+sources = [
+  "https://get.art3mis.cloud/api/history?event_type=ip_change&new_value=104.204.141.165",
+]
+
+[[group]]
+anchor = "HLM6hyDWrEca9QMS92nDBa2AreU1qDkppttPVuJ7E2CU"  # P-OPS Team
+votes = [
+  "GK9MfwWEK7BvMS8eQDaiEPnKcqMJoS7SKUiEBQY2pfxC",  # JDO Mainnet Validator
+]
+[group.metadata]
+level = "warning"
+info = "Common operation: both take turns on the same hosts"
+details = "Host 84.32.186.144 used in turn, 7 hand-offs within an hour, 2025-10 to 2026-02"
+sources = [
+  "https://get.art3mis.cloud/api/history?event_type=ip_change&new_value=84.32.186.144",
+]
+
+[[group]]
+anchor = "FCvNkHa4U3yh7AXWGGL2jWLWiSRouR8EtzY5WVTHKTHa"  # H2O Nodes💧
+votes = [
+  "B1rsc6jv3RsFpkak8qvJN3PfGYSg9E3Uw1joaV1EoiFj",  # RevTec | 100% Block Reward
+]
+[group.metadata]
+level = "warning"
+info = "Common operation: both take turns on the same hosts"
+details = "Host 193.243.164.200 used in turn, 25 hand-offs within an hour, 2025-10 to 2026-09"
+sources = [
+  "https://get.art3mis.cloud/api/history?event_type=ip_change&new_value=193.243.164.200",
+]
+
+[[group]]
+anchor = "vvvvXsU6iG2enDVvs4KeVqS4YrZczTujSv5p3dSeNHx"  # Pesky Penguins 🔥💃 NOOT NOOT
+votes = [
+  "kyvvvkDpDCtSxQMPhzRhmv14DgUBVEGGzn8Dnb8ircP",  # Kyzzen
+]
+[group.metadata]
+level = "warning"
+info = "Common operation: both take turns on the same hosts"
+details = "Host 45.139.134.64 used in turn, 4 hand-offs within an hour, 2025-10 to 2026-09"
+sources = [
+  "https://get.art3mis.cloud/api/history?event_type=ip_change&new_value=45.139.134.64",
+]
+
+[[group]]
+anchor = "TKMA1fBGq4M7gF2CNnhphX6vNateFc2cm2FL2mYwq7e"  # Tokamai
+votes = [
+  "P1TCHYwYPsNaNUK6fGkZzwXPjnYAMYRnUUv4c1TREee",  # DePitch Academy
+]
+[group.metadata]
+level = "warning"
+info = "Common control: one signer in both withdraw multisigs; hosts in turn"
+details = "Squads signer 7qxbtq6skgSB3ucERTX1nccUhiHFxZxtXcNTaHo7syo7 in the withdraw multisigs of both. Host 160.202.131.33 used in turn, 18 hand-offs within an hour, 2025-10 to 2026-09"
+sources = [
+  "https://get.art3mis.cloud/api/history?event_type=ip_change&new_value=160.202.131.33",
+  "https://explorer.solana.com/address/ECX1HjSANQ5XitWPtQU6XmH1DN7fiy67eUNJPq8xvyrV",
+  "https://explorer.solana.com/address/2wsugdqRWrJbmZJ7W8q2iy9eVXqjvkuRCwZyKEzebk55",
+]
+
+[[group]]
+anchor = "4m1PbxzwLdUnEwog3T9UKxgjktgriHgE1CfAhMqDw7Xx"  # Sora Validator
+votes = [
+  "3xjfK9C9YNcta8MvK1US4sQ3bc6DEjoJoR3qLExGf9xE",  # pico🙄.sol
+]
+[group.metadata]
+level = "warning"
+info = "Common operation: both take turns on the same hosts"
+details = "Hosts 86.105.224.8, 185.191.117.56, 5.199.172.199 used in turn, 2 hand-offs within an hour, 2025-12 to 2026-09"
+sources = [
+  "https://get.art3mis.cloud/api/history?event_type=ip_change&new_value=86.105.224.8",
+  "https://get.art3mis.cloud/api/history?event_type=ip_change&new_value=185.191.117.56",
+  "https://get.art3mis.cloud/api/history?event_type=ip_change&new_value=5.199.172.199",
+]
+
+[[group]]
+anchor = "NikGQUQqSLtsdHGGx7mQopojZcgd3N9uWFaZQ1r5EXn"  # NCValidator
+votes = [
+  "HcbE5huUVDgsf7SURsRfQqnFMp3Zz3i49eXMddugPyAP",  # Solana Ukraine 🇺🇦
+  "ViKLknQuks11DLEjZ7Y2aNYAAT7Q3NTKLGxs8rdnLVi",  # LightNode
+]
+[group.metadata]
+level = "warning"
+info = "Common operation: all 3 take turns on the same hosts"
+details = "Hosts 176.111.58.114, 5.187.35.46 used in turn, 2 hand-offs within an hour, 2025-10 to 2026-09"
+sources = [
+  "https://get.art3mis.cloud/api/history?event_type=ip_change&new_value=176.111.58.114",
+  "https://get.art3mis.cloud/api/history?event_type=ip_change&new_value=5.187.35.46",
+]
+
+[[group]]
+anchor = "DrKHZXtuGhuYbe5MfigvCXR7VFd3u2wxepXei8m2GsDE"
+votes = [
+  "sShosKd6uA5c1ZpVMxdsE6do13TLRWSMYsXbSMmNC77",  # dogo
+]
+[group.metadata]
+level = "warning"
+info = "Common operation: the unnamed identity runs on hosts dogo uses"
+details = "dogo used 64.130.32.174 81 times from 2025-10. DrKHZXtu started on that host on 2026-08-06 and moved on 2026-09-01 to 64.130.42.86, a host dogo used 26 times. Its stake is delegated by Marinade and Marinade Native"
+sources = [
+  "https://get.art3mis.cloud/api/history?event_type=ip_change&new_value=64.130.32.174",
+  "https://get.art3mis.cloud/api/history?event_type=ip_change&new_value=64.130.42.86",
+  "https://get.art3mis.cloud/api/history?event_type=ip_change&validator=DaRKu4L3qAgXLpuUfk7k8mTB9VzXBEj5hxLVe2mQS1dE",
+]
+
+[[group]]
+anchor = "Cu4GibmVNncBa4NWD8JpDcBKc29NnSWH9h8YHgTQn5f2"  # Fly to the Moon Validator
+votes = [
+  "FEjcS4JCTqitjzW4Zj3Va2ioZZKf7MqsCMnrrgGLSvjm",  # Block Rush Validator
+]
+[group.metadata]
+level = "warning"
+info = "Common control: one withdraw authority for both"
+details = "Withdraw authority GBhHKdgzgme3ezmEhBKG4nnY5XrJ9sjPHLfg67VDxfZW on both"
+sources = [
+  "https://explorer.solana.com/address/GBhHKdgzgme3ezmEhBKG4nnY5XrJ9sjPHLfg67VDxfZW",
+]
+
+[[group]]
+anchor = "so1arJJbp9sis5XpovLyjTZPk8bDjfs37Meghi5wXbu"  # Solar | Empowering Youth | 0% Fee + MEV Rewards
+votes = [
+  "FH9xcL7Fqkreq1wSkn2Vf7AfnMEyo2KK7QX32LTFndt6",  # Fountainhead 🌱 Funding Dev WITH max APY
+]
+[group.metadata]
+level = "warning"
+info = "Common control: two signers in both withdraw multisigs; hosts in turn"
+details = "Squads signers 39bFgLTjEsmhjafwh6h6pesK7C6t6GwDS4xeDor3KoZM and 2AT9Xt1tA81mivXtB9hDaTvCqnzfXPGtobqLAeTN9cgJ in the withdraw multisigs of both. Hosts 89.42.231.105, 31.57.32.14 and 31.57.32.13 used in turn, 15 hand-offs within an hour, 2025-10 to 2026-09"
+sources = [
+  "https://get.art3mis.cloud/api/history?event_type=ip_change&new_value=89.42.231.105",
+  "https://get.art3mis.cloud/api/history?event_type=ip_change&new_value=31.57.32.14",
+  "https://get.art3mis.cloud/api/history?event_type=ip_change&new_value=31.57.32.13",
+  "https://explorer.solana.com/address/9WruyjFjUXhFxhu54jQWyGcj5LisU3rJK2VzdGPcR4ma",
+  "https://explorer.solana.com/address/4VoLTeJCJeoCAAz64VcWEhA22VyoygnG6JL5cLCYWM9Q",
+]
+
+[[group]]
+anchor = "HdQ1Ap8wm6Mz65FaP8jMNBVfCDv5T9NdS8UTSvHmcotn"  # Moutai Validator 🚀 Performant, Secure and NO Fees
+votes = [
+  "Fe5zMqkmoYbwnXH9RHjFy7YMRnak9so2bzPBroPJ4iiX",  # U1S1 Validator 🚀 Performant, Secure and NO Fees
+  "DzPT1ZWDeURdTj38QBSceWnrpYFxZRBLPRXmUgHVDAGR",  # YYDS Validator 🚀 Performant, Secure and NO Fees
+]
+[group.metadata]
+level = "warning"
+info = "Common control: one withdraw authority for all 3"
+details = "Withdraw authority G7zwjeFkb3YBLPYpxSVqNH6mJTuVe3gkfaNWA4Dw9irc on all 3, and the same website site-et7.pages.dev. Hosts 64.130.33.106, 208.91.110.228 and 64.130.44.58 used in turn, 21 hand-offs within an hour, 2025-10 to 2026-09"
+sources = [
+  "https://explorer.solana.com/address/G7zwjeFkb3YBLPYpxSVqNH6mJTuVe3gkfaNWA4Dw9irc",
+  "https://get.art3mis.cloud/api/validators/HdQ1Ap8wm6Mz65FaP8jMNBVfCDv5T9NdS8UTSvHmcotn",
+  "https://get.art3mis.cloud/api/validators/Fe5zMqkmoYbwnXH9RHjFy7YMRnak9so2bzPBroPJ4iiX",
+  "https://get.art3mis.cloud/api/history?event_type=ip_change&new_value=64.130.33.106",
+  "https://get.art3mis.cloud/api/history?event_type=ip_change&new_value=208.91.110.228",
+  "https://get.art3mis.cloud/api/history?event_type=ip_change&new_value=64.130.44.58",
+]
+
+[[group]]
+anchor = "CzmqDuqEpfnkptuLAcikmJrhCnhFXo8aUBj6Rto1SPAc"  # MARGUS.ONE 💎 0% fee +MEV!
+votes = [
+  "5ni6KoVM62cRJNfFFKGdiyDfYbKWWAGZ21cfGZcj1y66",  # Custodian 💼 0% fees +MEV!
+]
+[group.metadata]
+level = "warning"
+info = "Common operation: both take turns on the same hosts"
+details = "Hosts 5.61.209.67, 185.133.42.59, 62.197.45.172 used in turn, 10 hand-offs within an hour, 2025-10 to 2026-09"
+sources = [
+  "https://get.art3mis.cloud/api/history?event_type=ip_change&new_value=5.61.209.67",
+  "https://get.art3mis.cloud/api/history?event_type=ip_change&new_value=185.133.42.59",
+  "https://get.art3mis.cloud/api/history?event_type=ip_change&new_value=62.197.45.172",
+]
+
+[[group]]
+anchor = "A11pGbZDE8fPNZgiqDjoST6v3QMdhzZ3r8W5YahCKtS5"  # Rain Works💧MEV💧0% fees
+votes = [
+  "Wh1teWn8PVimrF5FLJyrPzwzCFx5adGqjsWoTaLGsKK",
+  "BZZFpWeasotFsxhwiwTz37BqtV5BjQtfkrVxz73zqQV",
+  "SAFUitvicp7bGv9pbYhRJB5wu4doALqR5xB22V6EDjQ",  # SOL⚙️MECH
+]
+[group.metadata]
+level = "warning"
+info = "Common operation: all 4 identities take turns on the same hosts"
+details = "Host 104.204.140.137 had 23 arrivals from 2025-12 to 2026-02, by these four only, about half an hour each; 70.40.185.205 had three of them on 2026-03-10 (17:12, 17:48, 18:41 UTC), 70.40.186.45 three of them in 2026-04. Rain Works handed over within an hour with each of the other three"
+sources = [
+  "https://get.art3mis.cloud/api/history?event_type=ip_change&new_value=104.204.140.137",
+  "https://get.art3mis.cloud/api/history?event_type=ip_change&new_value=70.40.185.205",
+  "https://get.art3mis.cloud/api/history?event_type=ip_change&new_value=70.40.186.45",
+  "https://get.art3mis.cloud/api/history?event_type=ip_change&new_value=45.139.133.95",
+]
+
+[[group]]
+anchor = "SQDSVTDfE5HqL7D6RjZk1vvZhaheWoskrDdDHCki68w"  # Squads
+votes = [
+  "VotESBSkLKU8vebS6wTR2rzWWJsLc6YThYS6tebPxXq",  # Paragon
+]
+[group.metadata]
+level = "warning"
+info = "Common control: one signer in both withdraw multisigs"
+details = "Signer 6PDVx8ehuwBuoEwvmi6v56DzPzm96a9YiNH4kG4Rb7Dw is in the withdraw multisig of Squads (3 of 4 signatures) and of Paragon (3 of 5)"
+sources = [
+  "https://explorer.solana.com/address/6PDVx8ehuwBuoEwvmi6v56DzPzm96a9YiNH4kG4Rb7Dw",
+  "https://explorer.solana.com/address/5BWNUxvXry65D2vHcfcUMuq4wvWMaN53L3BbN482xDGc",
+  "https://explorer.solana.com/address/4dnkAtsLvGoQ8bCMdGSsZqPRdgvLjUGFXk3DtF2RapP8",
+]
+
+[[group]]
+anchor = "CcaHc2L43ZWjwCHART3oZoJvHLAe9hzT2DJNUpBzoTN1"  # Figment
+votes = [
+  "26pV97Ce83ZQ6Kz9XT4td8tdoUFPTng8Fb8gPyc53dJx",  # Ledger by Figment
+  "6jf9Hwx4ChqUpi8skCqmh7bnfTWXHXsqbfqAPHmSzPYc",  # Figment | Firedancer
+]
+[group.metadata]
+level = "note"
+info = "One operator, declared: Figment in the name or website of all 3"
+details = "Website figment.io in validator-info on Figment and Figment | Firedancer; Ledger by Figment names Figment. Solscan lists Enm5ScgWN6SGL6eMh5xxYtTHGdpxH2kZ8PxeQ9JpALN3 as first funder of the identities of Ledger by Figment and Figment | Firedancer"
+sources = [
+  "https://get.art3mis.cloud/api/validators/CcaHc2L43ZWjwCHART3oZoJvHLAe9hzT2DJNUpBzoTN1",
+  "https://get.art3mis.cloud/api/validators/6jf9Hwx4ChqUpi8skCqmh7bnfTWXHXsqbfqAPHmSzPYc",
+  "https://solscan.io/account/C8Bey3LKVJHVqN6xPTeW8WJfUgFQAeGNBpT4Rp99JP1k",
+  "https://solscan.io/account/HPJ2KUVgRnG889NyfEcUyZkGD1abrZxjZVmsYAjLZU1N",
+]
+
+[[group]]
+anchor = "8GbwASqdpw4dVcwbWUxbHXMrjyQx2aKkoBR5H1GJF8iD"  # Bitwise Onchain Solutions
+votes = [
+  "AuGwcQWqWuNbnrkgERSp8VN6kZeJiM4AZuLMrwbkzg9m",  # Bitwise Onchain Solutions | Jito BAM
+  "Chorus6Kis8tFHA7AowrPMcRJk3LbApHTYpgSNXzY5KE",  # Bitwise Onchain Solutions 02
+  "CpfvLiiPALdzZTP3fUrALg2TXwEDSAknRh1sn5JCt9Sr",  # Ledger by Bitwise
+  "EogKVYgic8LKAuV1kR9nRqJaS5zpwCvSMfqoehzmAMpK",  # Bitwise Onchain Solutions Research
+]
+[group.metadata]
+level = "note"
+info = "One operator, declared: Bitwise in the name or website of all 5"
+details = "Website bitwiseinvestments.com in validator-info on 4 of 5; Ledger by Bitwise names Bitwise. Withdraw authority JCkod8xUb83ejQ9pLq9tTDrpEQAuiWrcLWX6AS5gp2mp on Bitwise Onchain Solutions 02 and Research; Solscan lists it as first funder of 3 of the 5 identities"
+sources = [
+  "https://explorer.solana.com/address/JCkod8xUb83ejQ9pLq9tTDrpEQAuiWrcLWX6AS5gp2mp",
+  "https://get.art3mis.cloud/api/validators/8GbwASqdpw4dVcwbWUxbHXMrjyQx2aKkoBR5H1GJF8iD",
+  "https://get.art3mis.cloud/api/validators/AuGwcQWqWuNbnrkgERSp8VN6kZeJiM4AZuLMrwbkzg9m",
+  "https://solscan.io/account/GBQ2GvTzmjXMu97dr7WUnLKYTNim1aoZsYS53KYXAAAA",
+  "https://solscan.io/account/LeDbQ99QT342j9S5YdyXLrsq2Gu3T3dMGajExdAuE3V",
+  "https://solscan.io/account/2abwQG3v2xRemFxRszVHSfnjJNe9zu5X8duKgxjyLeaK",
+]
+
+[[group]]
+anchor = "he1iusunGwqrNtafDtLdhsUQDFvo13z9sUa36PauBtk"  # Helius
+votes = [
+  "CzGLRXJXoDo9q86MpphPVNNsTgAxHvZfUfAiouWDH89M",
+]
+[group.metadata]
+level = "note"
+info = "Common operation: both take turns on the same hosts"
+details = "Hosts 64.130.57.215, 64.130.57.131 used in turn, 2 hand-offs within an hour, 2025-10 to 2026-09"
+sources = [
+  "https://get.art3mis.cloud/api/history?event_type=ip_change&new_value=64.130.57.215",
+  "https://get.art3mis.cloud/api/history?event_type=ip_change&new_value=64.130.57.131",
+]
+
+[[group]]
+anchor = "KRAKEnMdmT4EfM8ykTFH6yLoCd5vNLcQvJwF66Y2dag"  # Kraken
+votes = [
+  "51JBzSTU5rAM8gLAVQKgp4WoZerQcSqWC7BitBzgUNAm",  # Kraken 2
+]
+[group.metadata]
+level = "note"
+info = "One operator, declared: website kraken.com on both"
+details = "Withdraw authority BLk8y6Qbf3Wo8qhLVeaNxQSeAKJp1hU2t6yuZHvGTUXW on both. Website kraken.com in validator-info on both"
+sources = [
+  "https://explorer.solana.com/address/BLk8y6Qbf3Wo8qhLVeaNxQSeAKJp1hU2t6yuZHvGTUXW",
+  "https://get.art3mis.cloud/api/validators/KRAKEnMdmT4EfM8ykTFH6yLoCd5vNLcQvJwF66Y2dag",
+  "https://get.art3mis.cloud/api/validators/51JBzSTU5rAM8gLAVQKgp4WoZerQcSqWC7BitBzgUNAm",
+]
+
+[[group]]
+anchor = "9Diao4uo6NpeMud7t5wvGnJ3WxDM7iaYxkGtJM36T4dy"  # Firedancer Development
+votes = [
+  "HZKopZYvv8v6un2H6KUNVQCnK5zM9emKKezvqhTBSpEc",
+  "2e7PfK4w5QzYxNFJZYqpeXpZ6sx2CGC1BMpF76nzDoCC",
+  "H43AYFsvhNuALQieHpLXefp1ECgEBT6oVnS4EcTsC25C",
+  "HeQ9mBd2RA3JLkBUBcyJJTGhcFtRPeQuQKY2qx1VU3RA",
+  "AF84u2vQvSyuSurDqJNSgLGKA8viTrHmeYwjKzisC6w1",
+  "drXsaoxWGkvjEUveMpbS1RVQmtZ7y1kb9E4YERJxCFt",
+  "54DYhq7YnjHgVw8fKTEtYbc7qAtctWo8bjj84BrK1199",
+  "GdFaSCpPf9RqRjxkvXUCzLR62bEjmEPZMS9XRVFC3pDu",
+]
+[group.metadata]
+level = "note"
+info = "Common control: two withdraw authorities cover 7 of 9"
+details = "Withdraw authority C2H6YSkVfACbqK9p2rmBWGHM7MUxrXx1n4onbm5AmjZX on 5 of 9 and EcH12jxhrbhF6qHqRzWpZ8rZU3TjG3sX6F67zP61oDJG on 2 of 9. Five take turns on hosts 64.130.41.141, 64.130.41.157 and 64.130.42.146. Solscan lists the identity keys of H43AYFsv and HeQ9mBd2 as first funder of four other members' identities"
+sources = [
+  "https://explorer.solana.com/address/C2H6YSkVfACbqK9p2rmBWGHM7MUxrXx1n4onbm5AmjZX",
+  "https://get.art3mis.cloud/api/history?event_type=ip_change&new_value=64.130.41.141",
+  "https://get.art3mis.cloud/api/history?event_type=ip_change&new_value=64.130.41.157",
+  "https://get.art3mis.cloud/api/history?event_type=ip_change&new_value=64.130.42.146",
+  "https://solscan.io/account/4SNKY7GCp7ohY4AawND5Cc2D71sWMWN3Uifo854yvtks",
+  "https://solscan.io/account/AHZxzLeRGRfNVFrCmP58iJgEwbcXyZeAkZ32CmbfEmYR",
+  "https://solscan.io/account/6DTkuiey2RgMaBPC32dx2YpRKoNVfL19WdwBYih5SkVw",
+  "https://solscan.io/account/HDRqPft5ioWZnsV2XgNWpoyg9Js6Lnh6TxMSiDG843KD",
+  "https://solscan.io/account/FhFB8MAj5Kzxo2aUKnnAXGWxQRhfe1Nfrf5gTReQ1evD",
+]
+
+[[group]]
+anchor = "AaVsZUEnrHUZoXC2oVgTY3GF5GGhzCTBGrjpBtuUWy1H"  # Coinbase 04
+votes = [
+  "6D2jqw9hyVCpppZexquxa74Fn33rJzzBx38T58VucHx9",  # Coinbase 02
+  "GqcuMuWq4gKeCuCrD8iAjXTozCET2EP6qJXmZDFsSTWK",  # Coinbase 03
+  "ERut3CwqVeoa616QBaoHc5jL52RpkXjZZZ7MeaMaCtLi",  # Coinbase 05
+  "beefKGBWeSpHzYBHZXwp5So7wdQGX6mu4ZHCsH3uTar",  # Coinbase
+  "ARf5F66NrsQDQY4cmSCwyQJrYKhsiydgmeDNiHEWEmKT",  # Coinbase 06
+]
+[group.metadata]
+level = "note"
+info = "One operator, declared: website coinbase.com/staking on all 6"
+details = "Website coinbase.com/staking, the same validator-info icon and the same description on all 6"
+sources = [
+  "https://get.art3mis.cloud/api/validators/AaVsZUEnrHUZoXC2oVgTY3GF5GGhzCTBGrjpBtuUWy1H",
+  "https://get.art3mis.cloud/api/validators/6D2jqw9hyVCpppZexquxa74Fn33rJzzBx38T58VucHx9",
+]
+
+[[group]]
+anchor = "CvSb7wdQAFpHuSpTYTJnX5SYH4hCfQ9VuGnqrKaKwycB"  # Galaxy
+votes = [
+  "GAoCBDE9ABRYmhWUREDp4po4L8JgCPeQsPS77p1mx3WR",
+]
+[group.metadata]
+level = "note"
+info = "Common operation: both take turns on the same hosts"
+details = "Hosts 86.54.153.244, 86.54.153.246 used in turn, 3 hand-offs within an hour, 2025-11 to 2026-09"
+sources = [
+  "https://get.art3mis.cloud/api/history?event_type=ip_change&new_value=86.54.153.244",
+  "https://get.art3mis.cloud/api/history?event_type=ip_change&new_value=86.54.153.246",
+]
+
+[[group]]
+anchor = "DumiCKHVqoCQKD8roLApzR5Fit8qGV5fVQsJV9sTZk4a"  # Staking Facilities | MEV 🔥
+votes = [
+  "BeachiopjxQxL7CaHNSZsynApiZCKx9QFVtcWNz3jDBo",  # Solana Beach Validator
+  "Ehdn9LdjTAURQSMoDPERXLehtvzy7QD762wwPkzGT7RS",  # SuperteamDE x Staking Facilities | Public Goods Validator
+]
+[group.metadata]
+level = "note"
+info = "Common control: one withdraw authority for all 3"
+details = "Withdraw authority FhTtxoWPze25MdLZE7mzAwThtU8dgx6mEBtcoeK9puQr on all 3. Solana Beach is built and run by Staking Facilities (their announcement); SuperteamDE x Staking Facilities states it in its name"
+sources = [
+  "https://explorer.solana.com/address/FhTtxoWPze25MdLZE7mzAwThtU8dgx6mEBtcoeK9puQr",
+  "https://stakingfac.medium.com/join-us-at-the-beach-9a877b1958ba",
+  "https://stakingfacilities.com/job-postings/back-end-developer-solana-beach",
+]
+
+[[group]]
+anchor = "DdCNGDpP7qMgoAy6paFzhhak2EeyCZcgjH7ak5u5v28m"  # Kiln1
+votes = [
+  "HCvnhbT3Sn5RsueDisWzzn5FkW8tAqoQK1dr7cvAVzin",  # Kiln2
+]
+[group.metadata]
+level = "note"
+info = "One operator, declared: website kiln.fi on both"
+details = "Website kiln.fi in validator-info on both"
+sources = [
+  "https://get.art3mis.cloud/api/validators/DdCNGDpP7qMgoAy6paFzhhak2EeyCZcgjH7ak5u5v28m",
+  "https://get.art3mis.cloud/api/validators/HCvnhbT3Sn5RsueDisWzzn5FkW8tAqoQK1dr7cvAVzin",
+]
+
+[[group]]
+anchor = "6aow5rTURdbhbeMDrFrbP2GR5vZjMEhktEy87iH1VGPs"  # Luganodes
+votes = [
+  "G83jy4NB16A4mchfRjZvfH8SPH2TxwjSZYxh5fzg2Qys",
+]
+[group.metadata]
+level = "note"
+info = "Common operation: both take turns on the same hosts"
+details = "Host 78.138.96.203 used in turn, 2025-12 to 2026-05"
+sources = [
+  "https://get.art3mis.cloud/api/history?event_type=ip_change&new_value=78.138.96.203",
+]
+
+[[group]]
+anchor = "punK4RDD3pFbcum79ACHatYPLLE1hr5UNnQVUGNfeyP"  # SOL Strategies
+votes = [
+  "oRAnGeU5h8h2UkvbfnE5cjXnnAa4rBoaxmS4kbFymSe",  # Orangefin by SOL Strategies
+  "CogentC52e7kktFfWHwsqSmr8LiS1yAtfqhHcftCPcBJ",  # Cogent ⚙️  by SOL Strategies
+  "GE6atKoWiQ2pt3zL7N13pjNHjdLVys8LinG8qeJLcAiL",  # Laine ❤️  by SOL Strategies
+  "pENgUh4K9zNacyU3PXVE9KugW98XCqZsWpEvA8d8wzX",  # PENGU Validator
+]
+[group.metadata]
+level = "note"
+info = "Common control: withdraw vaults of all 5 share signer keys"
+details = "The withdraw authorities are vaults of four Squads multisigs, each needing 2 signatures: SOL Strategies (2 of 5), Orangefin and Laine (one vault, 2 of 8), Cogent (2 of 4), PENGU Validator (2 of 4). Every pair of these multisigs shares at least two signers, including orWTVSax, HFuAfpYu, 592L5EYT, D9kFFjcA, BCat3L2u. The acquisitions and the PENGU validator are announced by SOL Strategies"
+sources = [
+  "https://solstrategies.io/sol-strategies-announces-completion-of-orangefin-ventures-validator-acquisition/",
+  "https://solstrategies.io/sol-strategies-partners-with-pudgy-penguins-to-launch-enterprise-pengu-validator-on-solana/",
+  "https://explorer.solana.com/address/TvKHHCKkw985C1Xbt9kV8bLrm4Ukw8PSywijXD7dJHt",
+  "https://explorer.solana.com/address/8JjRZsPYw2iFBrGygXQFnWtFaHwSmSwhRLLNmnPDZCwu",
+  "https://explorer.solana.com/address/Apd95nZyLFJaB8GwztEpSZxBnHpneuzrdAJm9CePmC1C",
+  "https://explorer.solana.com/address/3368L5z2CuBRhQZTewRAsjDFrcJX7bMuEB5LwpR9H1Wr",
+]
+
+[[group]]
+anchor = "FuvD3qqrVjuh355sBs1u8bUS3aU8NgknymLskPvtAc6N"
+votes = [
+  "J1to1yufRnoWn81KYg1XkTWzmKjnYSnmE2VY8DGUJ9Qv",  # Jito1
+  "J1to2NAwajc8hD6E6kujdQiPn1Bbt2mGKKZLY9kSQKdB",  # Jito2 (Experimental)
+  "J1to3PQfXidUUhprQWgdKkQAMWPJAEqSJ7amkBDE9qhF",  # Jito3 / BONK - DECOMMISSIONING
+]
+[group.metadata]
+level = "note"
+info = "Common control: one withdraw authority for 3 of 4"
+details = "Withdraw authority HqYJKKHPvuD7NwToZdbETCwAvCE2hfFhnTg3Gqg4mQoB on Jito1, Jito2 (Experimental) and Jito3 / BONK; website jito.wtf on Jito1 and Jito2. FuvD3qqr takes turns with them on hosts 64.130.61.62, 64.130.59.234, 64.130.50.44 (4 hand-offs within an hour)"
+sources = [
+  "https://explorer.solana.com/address/HqYJKKHPvuD7NwToZdbETCwAvCE2hfFhnTg3Gqg4mQoB",
+  "https://get.art3mis.cloud/api/validators/J1to1yufRnoWn81KYg1XkTWzmKjnYSnmE2VY8DGUJ9Qv",
+  "https://get.art3mis.cloud/api/validators/J1to2NAwajc8hD6E6kujdQiPn1Bbt2mGKKZLY9kSQKdB",
+  "https://get.art3mis.cloud/api/history?event_type=ip_change&new_value=64.130.61.62",
+  "https://get.art3mis.cloud/api/history?event_type=ip_change&new_value=64.130.59.234",
+  "https://get.art3mis.cloud/api/history?event_type=ip_change&new_value=64.130.50.44",
+]
+
+[[group]]
+anchor = "LSTmLs1DENX82ihc7jU134mydiV3NDEPXsRrekAY6Ys"  # Sanctum
+votes = [
+  "685Njwvpn3t5a8cAfVj7R65AfCJ6XoBpca9qy15XFiTd",
+]
+[group.metadata]
+level = "note"
+info = "Common control: one withdraw authority for both"
+details = "Withdraw authority 8JS6XsMPo2u3EyeeY3p2jvzHEhdUtCKgarHpJ3PAonyv on both. Hosts 162.19.94.9, 162.19.126.221 used in turn, 2026-05 to 2026-09"
+sources = [
+  "https://explorer.solana.com/address/8JS6XsMPo2u3EyeeY3p2jvzHEhdUtCKgarHpJ3PAonyv",
+  "https://get.art3mis.cloud/api/history?event_type=ip_change&new_value=162.19.94.9",
+  "https://get.art3mis.cloud/api/history?event_type=ip_change&new_value=162.19.126.221",
+]
+
+[[group]]
+anchor = "34kE8AGJazhgrsovREiB2Uru1CuhN4gCznNAmVUxB9AB"
+votes = [
+  "J2nUHEAgZFRyuJbFjdqPrAa9gyWDuc7hErtDQHPhsYRp",  # Phantom Validator
+]
+[group.metadata]
+level = "note"
+info = "Common control: one withdraw authority for both"
+details = "Withdraw authority 87RkDTy3dEsEP9Rbfb4KoFHuQ2JNvT4xnagQLL6DKCH9 on both"
+sources = [
+  "https://explorer.solana.com/address/87RkDTy3dEsEP9Rbfb4KoFHuQ2JNvT4xnagQLL6DKCH9",
+]
+
+[[group]]
+anchor = "71nnaeTyVeA4pTozAPjRuQyMydQTZCrFUkz7Pzy5tiDJ"
+votes = [
+  "GrefCNn5jSbcWv3uiervqZiCC87F8oX7PXz9LEBiog6s",  # TruFin by Twinstake
+]
+[group.metadata]
+level = "note"
+info = "Common operation: both take turns on the same hosts"
+details = "Host 84.207.214.232 used in turn, 8 hand-offs within an hour, 2025-10 to 2026-09"
+sources = [
+  "https://get.art3mis.cloud/api/history?event_type=ip_change&new_value=84.207.214.232",
+]
+
+[[group]]
+anchor = "GvZEwtCHZ7YtCkQCaLRVEXsyVvQkRDhJhQgB6akPme1e"  # melea 🚀 SOL 🤑2K
+votes = [
+  "6hTLQ5HSdWcpZkbXmZxXaGjCgTh7zh8UeWKWKgGE1BPp",  # 6hTLQ5HSdWcpZkbXmZxXaGjCgTh7zh8UeWKWKgGE1BPp
+]
+[group.metadata]
+level = "note"
+info = "Common operation: the two traded hosts within 17 minutes"
+details = "On 2026-01-31 melea moved from 149.255.37.94 to 46.21.152.138 at 20:56 UTC and 6hTLQ5H moved from 46.21.152.138 to 149.255.37.94 at 21:13 UTC; melea returned to 149.255.37.94 on 2026-02-01 at 10:57 UTC"
+sources = [
+  "https://get.art3mis.cloud/api/history?event_type=ip_change&new_value=46.21.152.138",
+  "https://get.art3mis.cloud/api/history?event_type=ip_change&new_value=149.255.37.94",
+]
+
+[[group]]
+anchor = "DierScgiTrz5AM7mddeJLHYNvafym3XhjjdM51AnKevU"  # MAVAN
+votes = [
+  "FnAPJkzf19s87sm24Qhv6bHZMZvZ43gjNUBRgjwXpD4v",  # MAVAN Infrastructure
+]
+[group.metadata]
+level = "note"
+info = "One operator, declared: website bitminetech.io on both"
+details = "Withdraw authority 21QtqniuGZgqcgHrcfo9ujufnnFd2xEuKk9pnC1gWYGW on both. Website bitminetech.io in validator-info on both"
+sources = [
+  "https://explorer.solana.com/address/21QtqniuGZgqcgHrcfo9ujufnnFd2xEuKk9pnC1gWYGW",
+  "https://get.art3mis.cloud/api/validators/DierScgiTrz5AM7mddeJLHYNvafym3XhjjdM51AnKevU",
+  "https://get.art3mis.cloud/api/validators/FnAPJkzf19s87sm24Qhv6bHZMZvZ43gjNUBRgjwXpD4v",
+]
+
+[[group]]
+anchor = "PEBBLETUXFPdrwm5heff4x1VsrypGS1fNSRPEF6LiZL"  # Pebble
+votes = [
+  "PUFFiNkUHF2DMfbKeUcYTSQckDDtkswfxZCDv5WQqwp",  # Puffin
+]
+[group.metadata]
+level = "note"
+info = "One operator, declared: website puffin-validator.xyz on both"
+details = "Website puffin-validator.xyz in validator-info on both. Host 45.139.132.119 used in turn, 2025-10 to 2026-10"
+sources = [
+  "https://get.art3mis.cloud/api/validators/PEBBLETUXFPdrwm5heff4x1VsrypGS1fNSRPEF6LiZL",
+  "https://get.art3mis.cloud/api/validators/PUFFiNkUHF2DMfbKeUcYTSQckDDtkswfxZCDv5WQqwp",
+  "https://get.art3mis.cloud/api/history?event_type=ip_change&new_value=45.139.132.119",
+]
+
+[[group]]
+anchor = "RaydiumNAMK9EbDEP5wab8XiRkHNz1897SBsGUKotrV"  # Raydium
+votes = [
+  "RaydiumJDX8X6om6Fg44xyqz5eukZ9KC3LX61SttLbH",  # Raydium Validator
+]
+[group.metadata]
+level = "note"
+info = "One operator, declared: website raydium.io on both"
+details = "Website raydium.io in validator-info on both"
+sources = [
+  "https://get.art3mis.cloud/api/validators/RaydiumNAMK9EbDEP5wab8XiRkHNz1897SBsGUKotrV",
+  "https://get.art3mis.cloud/api/validators/RaydiumJDX8X6om6Fg44xyqz5eukZ9KC3LX61SttLbH",
+]
+
+[[group]]
+anchor = "bXr9MyoUAaGusQZ4gaUPmSZByHAV7RRGr1FhCW5tFh8"  # bloXroute EU
+votes = [
+  "DSzLJLUQD55sxaCsJBHLFSV1SYngMmT7oY8rLpFhyGgb",  # bloXroute US
+]
+[group.metadata]
+level = "note"
+info = "One operator, declared: website bloxroute.com on both"
+details = "Website bloxroute.com in validator-info on both. Host 186.233.187.51 used in turn, 8 hand-offs within an hour, 2025-10 to 2026-09"
+sources = [
+  "https://get.art3mis.cloud/api/validators/bXr9MyoUAaGusQZ4gaUPmSZByHAV7RRGr1FhCW5tFh8",
+  "https://get.art3mis.cloud/api/validators/DSzLJLUQD55sxaCsJBHLFSV1SYngMmT7oY8rLpFhyGgb",
+  "https://get.art3mis.cloud/api/history?event_type=ip_change&new_value=186.233.187.51",
+]
+
+[[group]]
+anchor = "4ZWkZ935pKUquuDpY64MmXVVoFciu6jAoC2z5bCxHhve"
+votes = [
+  "4LzXaAZs5UFsjizK6SqSGHEuzQZRpu9xFKaYyH4oQCdQ",
+  "4XFoRoFQzEpAf4Jc39bfsuWM4fos5Yq3zcyp9R3nStkF",
+]
+[group.metadata]
+level = "note"
+info = "Common control: one withdraw authority for all 3"
+details = "Withdraw authority 7zDxgmcQ316KfPnNpxZP63eRC3D4tmEJTVGmaQ9LiMUE on all 3"
+sources = [
+  "https://explorer.solana.com/address/4ZWkZ935pKUquuDpY64MmXVVoFciu6jAoC2z5bCxHhve",
+]
+
+[[group]]
+anchor = "RNXpSdqrJL6eoLrbW69Q9qsFviEwRpfFfk3HiRRRohq"  # RockawayX Firedancer
+votes = [
+  "spuraUaJeFZfdbgXpJhgqEHFAXatfrMArARXhXioxKd",
+  "DZViGjfD4um4GQaNEE1h8tmWtMpgCW6qcvPBuHCyLwRX",  # UNSTAKE / RE-DELEGATE
+]
+[group.metadata]
+level = "note"
+info = "Common operation: all 3 identities take turns on the same hosts"
+details = "RockawayX Firedancer and UNSTAKE / RE-DELEGATE used host 195.12.228.196 in turn, 2025-11 to 2026-02. spuraUaJ ran on 195.12.227.249 (UNSTAKE / RE-DELEGATE's host until 2026-02) from 2026-04, RockawayX Firedancer from 2026-08-29; spuraUaJ used 138.226.224.67 after RockawayX Firedancer left it. UNSTAKE / RE-DELEGATE held 1,352,361 SOL at epoch 915 and stopped on 2026-02-22"
+sources = [
+  "https://get.art3mis.cloud/api/history?event_type=ip_change&new_value=195.12.228.196",
+  "https://get.art3mis.cloud/api/history?event_type=ip_change&new_value=195.12.227.249",
+  "https://get.art3mis.cloud/api/history?event_type=ip_change&new_value=138.226.224.67",
+]
+
+[[group]]
+anchor = "6XiVWAyRpG7wGUQPVRd2XrYdgQVQyoQamd2J8XAmate"  # Solmate - RockawayX powered
+votes = [
+  "33HZcdnvpGV4tshjmimFb5tweTmct1JW7eJpgy1xdM64",  # Solmate UAE
+]
+[group.metadata]
+level = "note"
+info = "One operator, declared: website solmate.com on both"
+details = "Website solmate.com in validator-info on both; Solmate - RockawayX powered names RockawayX"
+sources = [
+  "https://get.art3mis.cloud/api/validators/6XiVWAyRpG7wGUQPVRd2XrYdgQVQyoQamd2J8XAmate",
+  "https://get.art3mis.cloud/api/validators/33HZcdnvpGV4tshjmimFb5tweTmct1JW7eJpgy1xdM64",
+]
+
+[[group]]
+anchor = "GLCrZmxWYcrGMA5uRa8mmNnQurGBL2p9zrKk9DKugSZX"
+votes = [
+  "9BSZriSFS8Yb835exZwTLN19Dqy9B43yvuMAAdL3nBvz",
+  "95Kg9C27WjjrnQpgZ418hxWTeumPTyH1ENnBoimVN5PL",
+  "BRrgfW2AKKYYEGVU6j1mbnoQajHTRuUgXCAPPzFgcF9q",
+  "FWwnxVb7Q59MoMraDN2k8gqkdJJVd2qu9o5iiQsxpoUp",
+  "BjREhubbyR597w8tK9NUCLY74Zct2VuhvrNhyLinVc2e",
+  "2zxo26eJJSryYa5fdMRoWWvPTx8aoeqZHe6L4767sCaN",
+  "6CscV2sTXdurJKwuJ6RZnPKca6pNhqAhN57ygKga2T7G",
+  "5cJyfCLBfghRtoCuVJNreJgNCStqXLrhHmRhSRYtbgtr",
+  "6zzAPhyFZgS6rdknHNZLcsoooZ744GtVmTDyfvRmN37Q",
+  "ASifxiwxht8FvsiV3VcLngsCBMw4E6zw3QMWoJTbM4Uf",
+]
+[group.metadata]
+level = "info"
+info = "Common control: Anza canary fleet, one withdraw authority for all 11"
+details = "Anza canary nodes, monitored in the #canaries-monitoring channel of the Solana Discord. Identities numbered mds1-4, scb1-2, sce1-3, scs1-2. Withdraw authority HuENqY8dYjWxWaXbM1oEk3J3F2htjgQJAEXRZ5WKv6Jt on all 11"
+sources = [
+  "https://explorer.solana.com/address/HuENqY8dYjWxWaXbM1oEk3J3F2htjgQJAEXRZ5WKv6Jt",
+  "https://discord.gg/solana",
+]
